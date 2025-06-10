@@ -62,9 +62,7 @@ const sessionOptions = {
         httpOnly : true,
     },
 };
-app.get("/",(req,res)=>{
-  res.render("listings/home")
-});
+
 
 app.use(session(sessionOptions));
 app.use(flash());
@@ -83,11 +81,14 @@ app.use((req,res,next)=>{
     next();
 });
 
-
+app.get("/",(req,res)=>{
+  res.render("listings/home")
+});
 
 app.use("/listings",listingRouter);
-app.use("/listings/:id/reviews",reviewRouter);
+
 app.use("/",userRouter);
+app.use("/listings/:id/reviews",reviewRouter);
 
 app.use((err,req,res,next)=>{
     const{statusCode=500,message="something wrong"}=err;
