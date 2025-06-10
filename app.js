@@ -80,6 +80,10 @@ app.use((req,res,next)=>{
     next();
 });
 
+app.get("/",(req,res)=>{
+  res.render("listings/home")
+});
+
 app.use("/listings",listingRouter);
 app.use("/listings/:id/reviews",reviewRouter);
 app.use("/",userRouter);
