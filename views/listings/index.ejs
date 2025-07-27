@@ -41,6 +41,19 @@
 
 </style>
 
+<!-- ✅ Optional Message for Search Results -->
+<% if (typeof searchQuery !== 'undefined' && allListings.length === 0) { %>
+  <div class="alert alert-danger alert-dismissible fade show w-50 mx-auto mt-4 text-center" role="alert">
+    No listings found for "<%= searchQuery %>"
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  
+  <% allListings = allListingsFromDB; %> <!-- fallback to original listings -->
+<% } %>
+
+
+
+
 <div id = "filters">
   <a href="/listings/category/Trending" class="filter">
     <div><i class="fa-solid fa-fire"></i></div>
@@ -110,7 +123,8 @@
               </p>
             </div>
       </div>
-          <%}%>
+      </a>
+      <%}%>
 </div>
   
 <script>
