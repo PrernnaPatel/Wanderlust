@@ -17,6 +17,22 @@ const ListingSchema =  new Schema({
     price:Number,
     location:String,
     country:String,
+    category: {  // ← MOVE HERE
+    type: String,
+    enum: [
+      "Trending",
+      "Rooms",
+      "Iconic cities",
+      "Mountains",
+      "Castles",
+      "Amazing Pools",
+      "Camping",
+      "Farm",
+      "Arctic",
+      "Domes",
+      "Boats"
+    ],
+  },
     reviews : [
         {
             type : Schema.Types.ObjectId,

@@ -31,6 +31,25 @@
             <div class="invalid-feedback">Price should be valid</div>
         </div>
 
+        <div class="mb-3 col-md-8">
+        <label for="category" class="form-label">Category</label>
+        <select id="category" name="listing[category]" class="form-control" required>
+          <option value="">Select a category</option>
+          <option value="Trending">Trending</option>
+          <option value="Rooms">Rooms</option>
+          <option value="Iconic cities">Iconic cities</option>
+          <option value="Mountains">Mountains</option>
+          <option value="Castles">Castles</option>
+          <option value="Amazing Pools">Amazing Pools</option>
+          <option value="Camping">Camping</option>
+          <option value="Farm">Farm</option>
+          <option value="Arctic">Arctic</option>
+          <option value="Domes">Domes</option>
+          <option value="Boats">Boats</option>
+        </select>
+        <div class="invalid-feedback">Please select a valid category</div>
+      </div>
+
         <div class="mb-3 col-md-8" >
             <label for = "country" class="form-label" >Country</label>
             <input name = "listing[country]" placeholder="Enter country" type="text" class="form-control" required>

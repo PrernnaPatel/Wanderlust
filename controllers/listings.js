@@ -80,3 +80,15 @@ module.exports.destroyListing=async(req,res)=>{
     req.flash("success","Listing Deleted");
     res.redirect("/listings");
 }
+
+module.exports.filterlisting=async (req, res) => {
+      const { category } = req.params;
+      const listings = await Listing.find({ category });
+      console.log(listings);
+      if (listings.length==0) {
+        req.flash('error', 'There is no listngs for this filter');
+       return res.redirect('/listings');
+        
+      }
+      res.render("listings/filter", { listings });
+  };

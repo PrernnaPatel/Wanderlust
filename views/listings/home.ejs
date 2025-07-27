@@ -1,0 +1,322 @@
+<% layout("layouts/boilerplate") %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TravelStay - Find Perfect Vacation Rentals</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    :root {
+      --primary: #FF385C;
+      --secondary: #008489;
+      --dark: #222222;
+      --light: #f7f7f7;
+      --gray: #717171;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    header {
+      padding: 20px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      background-color: white;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      z-index: 100;
+    }
+
+    .navbar-brand {
+      color: var(--primary);
+      font-size: 2rem;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+    }
+
+    .buttons {
+      display: flex;
+    }
+
+    .login-btn {
+      margin-right: 1rem;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--primary);
+      border: 1px solid var(--primary);
+    }
+
+    .hero {
+      height: 80vh;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                  url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+      max-width: 700px;
+    }
+
+    .benefits {
+      padding: 80px 5%;
+      background-color: var(--light);
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    .section-title p {
+      color: var(--gray);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-top: 50px;
+    }
+
+    .benefit-card {
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .benefit-card i {
+      font-size: 40px;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .benefit-card h3 {
+      margin-bottom: 15px;
+    }
+
+    .cta {
+      padding: 100px 5%;
+      text-align: center;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                  url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+    }
+
+    .cta h2 {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      font-size: 18px;
+      margin-bottom: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    footer {
+      background-color: var(--dark);
+      color: white;
+      padding: 50px 5% 20px;
+    }
+
+    .f-info {
+      text-align: center;
+      height: 8rem;
+      background-color: #222222;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .f-info-socials i {
+      margin-right: 0.8rem;
+      font-size: 1.2rem;
+    }
+
+    .f-info-links a {
+      text-decoration: none;
+      color: #b0b0b0;
+      margin: 0 1rem;
+    }
+
+    .f-info-links a:hover {
+      text-decoration: underline;
+      color: white;
+    }
+
+    .f-info-brand {
+      margin: 1rem 0;
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="navbar-brand" href="/"><i class="fa-regular fa-compass"></i></a>
+    <nav>
+      <ul>
+        <li><a href="/listings">Home</a></li>
+        <li><a href="/listings">Destinations</a></li>
+      </ul>
+    </nav>
+    <div class="buttons">
+      <form method="GET" action="/login">
+        <button class="btn btn-outline login-btn">Log In</button>
+      </form>
+      <form method="GET" action="/signup">
+        <button class="btn btn-primary">Sign Up</button>
+      </form>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Discover Your Perfect Getaway</h1>
+    <p>Book unique homes, experiences, and places to stay around the world.</p>
+    <form method="GET" action="/listings">
+      <button class="btn btn-primary" style="padding: 15px 30px; font-size: 18px;">Start Exploring</button>
+    </form>
+  </section>
+
+  <section class="benefits">
+    <div class="section-title">
+      <h2>Why Choose Wanderlust</h2>
+      <p>We're redefining the way people travel by offering unique stays and experiences</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <i class="fas fa-home"></i>
+        <h3>Unique Stays</h3>
+        <p>From treehouses to castles, find places you won't find anywhere else.</p>
+      </div>
+      <div class="benefit-card">
+        <i class="fas fa-globe"></i>
+        <h3>Global Coverage</h3>
+        <p>Over 4 million listings in 191 countries worldwide.</p>
+      </div>
+      <div class="benefit-card">
+        <i class="fas fa-lock"></i>
+        <h3>Secure Booking</h3>
+        <p>Your safety and privacy are our top priorities.</p>
+      </div>
+      <div class="benefit-card">
+        <i class="fas fa-headset"></i>
+        <h3>24/7 Support</h3>
+        <p>Our customer service team is always here to help.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <h2>Ready for Your Next Adventure?</h2>
+    <button class="btn btn-primary" style="padding: 15px 30px; font-size: 18px;">Start Exploring</button>
+  </section>
+
+  <footer>
+    <div class="f-info">
+      <div class="f-info-socials">
+        <i class="fa-brands fa-square-facebook"></i>
+        <i class="fa-brands fa-square-instagram"></i>
+        <i class="fa-brands fa-linkedin"></i>
+      </div>
+      <div class="f-info-brand">&copy; WanderLust Private Limited</div>
+      <div class="f-info-links">
+        <a href="/privacy">Privacy</a>
+        <a href="/terms">Terms</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
+
+

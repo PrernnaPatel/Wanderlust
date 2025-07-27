@@ -76,19 +76,36 @@ passport.deserializeUser(User.deserializeUser());
 app.use((req,res,next)=>{
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
-    res.locals.currUser=req.user;
+    console.log("Current user:", req.user);
+    res.locals.currUser=req.user || null;
     next();
 });
 
+app.get("/",(req,res)=>{
+  res.render("listings/home")
+});
+
+
 app.use("/listings",listingRouter);
-app.use("/listings/:id/reviews",reviewRouter);
+
 app.use("/",userRouter);
+app.use("/listings/:id/reviews",reviewRouter);
+
+// app.all("*", (req, res, next) => {
+//     next(new ExpressError(404, "Page Not Found"));
+// });
+
+// app.use((err, req, res, next) => {
+//     let { statusCode = 500, message = "Something went wrong" } = err;
+//     res.status(statusCode).send(message);
+// });
+
 
 app.use((err,req,res,next)=>{
-    const{statusCode=500,message="something wrong"}=err;
+    let {statusCode=404,message="something wrong"}=err;
     res.status(statusCode).render("error", { message });
 });
 
 app.listen(8080,()=>{
-    console.log("server is listening");
+    console.log("server is listening 8080");
 });
