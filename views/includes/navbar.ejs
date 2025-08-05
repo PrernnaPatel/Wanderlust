@@ -1,13 +1,14 @@
 <style>
   .btn-search{
-    background-color: #fe424d;
-    color: white ;
+    background-color: #8b2f2f;
+    color: #f5f0e1 ;
     border-radius: 25px;
     padding: 0 1rem 0 1rem;
   }
   .btn-search:hover{
-    background-color: #fe424d;
-    color: white ;
+    background-color: #f5f0e1;
+    color: #8b2f2f ;
+    border: 2px solid #283618;
   }
   .btn-search i {
     display: inline;
@@ -24,7 +25,10 @@
     
   <div class="container-fluid">
       
-    <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
+    <a class="navbar-brand" href="/listings">
+      <img src="/images/logo.png" alt="Yatraa Logo" style="height: 60px; border-radius: 10px; margin-right: 8px; border: 2px solid #8b2f2f;">
+  
+    </a>
       
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -40,7 +44,7 @@
 
         <div class="navbar-nav ms-auto">
           <form class="d-flex" role="search" action="/listings/search" method="GET">
-            <input class="form-control me-2 search-inp" type="search" name="q" placeholder="search destinations" required>
+            <input class="form-control me-2 search-inp" type="search" name="q" placeholder="search destinations" style="border:1px solid #8b2f2f;" required>
             <button class="btn btn-search" type="submit">
               <i class="fa-solid fa-magnifying-glass"></i>Search</button>
           </form>

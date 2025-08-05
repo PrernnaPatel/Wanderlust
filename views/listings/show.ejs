@@ -5,15 +5,15 @@
     <div class="col-8 offset-3 mt-3">
         <h3><%=listing.title%></h3>
     </div>
-    <div class="card col-6 offset-3 show-card listing-card">
+    <div class="col-6 offset-3 px-0">
+    <div class="card show-card listing-card p-0">
         <img src="<%=listing.image.url%>" class="card-img-top show-img" alt="listing_image">
         <div class="card-body">
-            <p class="card-text">Owned by:<i><%= listing.owner.username%></i></p>
+            <p class="card-text">Owned by : <i><%= listing.owner.username%></i></p>
             <p class="card-text"><%=listing.description%></p>
-            <p class="card-text">&#8377; <%=listing.price.toLocaleString("en-IN")%></p>
-            <p class="card-text"><%=listing.location%></p>
-            <p class="card-text"><%=listing.country%></p>
-            
+            <p class="card-text">Price: &#8377; <%=listing.price.toLocaleString("en-IN")%></p>
+            <p class="card-text"><i class="fa-solid fa-location-dot"></i> <%=listing.location%> , <%=listing.country%></p>
+            </div>
         </div>
     </div>
     
@@ -23,9 +23,9 @@
 
 <% if(currUser && listing.owner._id.equals(currUser._id)) {%>
 <div class="btns">
-    <a href="/listings/<%= listing._id%>/edit" class="btn btn-dark col-1 offset-3">Edit </a>
+    <a href="/listings/<%= listing._id%>/edit" class="btn col-1 offset-3" style="background-color:#8b2f2f; color:#f5f0e1; ">Edit </a>
     <form method = "post" action="/listings/<%=listing._id%>?_method=DELETE">
-        <button class="btn btn-dark offset-5"> Delete </button>
+        <button class="btn offset-5" style="background-color:#8b2f2f; color:#f5f0e1; "> Delete </button>
     </form>
 </div>
 <% } %>
@@ -57,10 +57,10 @@
 </div>
         <div class="mb-3 mt-3">
             <label for="comment" class="form-label">Comments</label>
-            <textarea name="review[comment]" id="comment" cols="30" rows="5" class="form-control" required></textarea>
+            <textarea name="review[comment]" style="border-radius: 1rem; border: 1px solid #8b2f2f;" id="comment" cols="30" rows="5" class="form-control" required></textarea>
             <div class="invalid-feedback">Please add some comments for reviews</div>
         </div>
-        <button class="btn btn-outline-dark">Submit</button>
+        <button class="btn btn-outline-dark" style="background-color:#8b2f2f; color:#f5f0e1; ">Submit</button>
     </form>
     <%}%>
 
@@ -68,19 +68,19 @@
 
     <% if(listing.reviews.length > 0)  { %>
     <div class="row">
-        <p><b>All Reviews</b></p>
+        <p class="rev"><b>All Reviews</b></p>
         <% for (review of listing.reviews){ %>
-            <div class="card col-5 ms-3 mb-3">
+            <div class="card col-5 ms-3 mb-3" style="border-radius: 1rem; border: 1px solid #8b2f2f;">
                 <div class="card-body ">
                     <h5 class="card-title"><%= review.author.username %></h5>
-                    <p class="starability-result " data-rating="<%=review.rating%>">
+                    <p class="starability-result" data-rating="<%=review.rating%>" >
                     </p>
                     <p class="card-text"><%=review.comment%></p>
                 
                     
                 </div>
                 <form class="mb-3" method="POST" action="/listings/<%= listing._id%>/reviews/<%= review._id%>?_method=DELETE">
-                    <button class="btn btn-sm btn-dark">Delete</button>
+                    <button class="btn btn-sm" style="background-color:#8b2f2f; color:#f5f0e1; ">Delete</button>
                 </form>
             </div>
         <%}%>
